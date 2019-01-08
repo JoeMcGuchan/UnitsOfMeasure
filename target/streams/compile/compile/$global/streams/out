@@ -1,0 +1,21 @@
+[0m[[0m[31merror[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:69:20: not found: value make_init_env[0m
+[0m[[0m[31merror[0m] [0m[0m  var global_env = make_init_env()[0m
+[0m[[0m[31merror[0m] [0m[0m                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:71:34: not found: value exp[0m
+[0m[[0m[31merror[0m] [0m[0m    val Success(e, _) = parseAll(exp, s)[0m
+[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:74:25: not found: value base_eval[0m
+[0m[[0m[31merror[0m] [0m[0m  def evl(e: Value) = { base_eval(e, global_env, F{ v => v } ) }[0m
+[0m[[0m[31merror[0m] [0m[0m                        ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:75:32: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Any[0m
+[0m[[0m[31merror[0m] [0m[0m required: lisp.ast.Value[0m
+[0m[[0m[31merror[0m] [0m[0m  def ev(s: String) = evl(parse(s))[0m
+[0m[[0m[31merror[0m] [0m[0m                               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:77:18: not found: value make_init_env[0m
+[0m[[0m[31merror[0m] [0m[0m    global_env = make_init_env()[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:100:10: not found: value UomNull[0m
+[0m[[0m[31merror[0m] [0m[0m    case UomNull => (true, "")[0m
+[0m[[0m[31merror[0m] [0m[0m         ^[0m
+[0m[[0m[31merror[0m] [0m[0m6 errors found[0m

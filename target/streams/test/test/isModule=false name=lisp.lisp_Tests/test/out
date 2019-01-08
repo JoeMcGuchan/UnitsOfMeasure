@@ -1,0 +1,10 @@
+[0m[[0m[0minfo[0m] [0m[0m[32mlisp_Tests:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- (factorial 6) !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- eq? !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- (odd 7) !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- eval !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- fexpr if !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- list !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- fexpr history !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- fsubr !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- fsubr history !!! IGNORED !!![0m[0m
