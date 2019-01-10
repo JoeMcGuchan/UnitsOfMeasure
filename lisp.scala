@@ -66,8 +66,8 @@ object parser extends JavaTokenParsers with PackratParsers {
     "#t" ^^ { case _ => B(true) } |
     wholeNumber ^^ { case s => I(s.toInt) } |
     """[^\s\(\)'"]+""".r ^^ { case s => S(s) } |
-    "'" ~> exp ^^ { case s => P(S("quote"), P(s, N)) } |
-    "()" ^^ { case _ => N } |
+    "'" ~> exp ^^ { case s => P(S("quote"), P(s, NullValue)) } |
+    "()" ^^ { case _ => NullValue } |
     "(" ~> exps <~ ")" ^^ { case vs => vs }
 
   def exps: Parser[Value] =
