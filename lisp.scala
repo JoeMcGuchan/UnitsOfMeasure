@@ -2,7 +2,7 @@ package lisp
 
 object ast {
   trait Value
-  case object UndefinedValue extends Value
+  case object Undefined extends Value
   case class B(b: Boolean) extends Value   
   case class S(sym: String) extends Value                     // Symbol
   case object NullValue extends Value
@@ -57,6 +57,144 @@ object ast {
 
 import ast._
 object eval {
+    //def base_eval(exp: Value, env: Env, cont: Cont): Value = {
+  def base_eval(exp: Value, env: Env, cont: Cont): Value = debug(s"eval ${pp.show(exp)}", env, cont) { (cont) =>
+    exp match {
+      case I(_,_) | B(_) | Fl(_,_) => cont.f(exp)
+      case S(sym) => eval_var(exp, env, cont)
+      case P(fun, args) => eval_application(exp, env, cont)
+    }
+  }
+
+  def eval_var(exp: Value, env: Env, cont: Cont): Value = exp match {
+    case S(x) => cont.f(get(env, x))
+  }
+
+  def eval_quote(exp: Value, env: Env, cont: Cont): Value = exp match {
+    case P(_, P(x, NullValue)) => cont.f(x)
+  }
+
+  def eval_if(exp: Value, env: Env, cont: Cont): Value = exp match {
+    case P(_, P(c, P(a, P(b, NullValue)))) => base_eval(c, env, F{ cv => cv match {
+      case B(false) => base_eval(b, env, cont)
+      case B(true) => base_eval(a, env, cont)
+    }})
+  }
+
+  def eval_set_bang(exp: Value, env: Env, cont: Cont): Value = exp match {
+    case P(_, P(S(x), P(rhs, NullValue))) => base_eval(rhs, env, F{ v =>
+      cont.f(set(env, x, v))
+    })
+  }
+
+  def eval_lambda(exp: Value, env: Env, cont: Cont): Value = exp match {
+    case P(_, P(params, body)) => cont.f(F({args =>
+      eval_begin(body, extend(env, params, args), F{v => v})
+    }))
+  }
+
+  def eval_begin(exp: Value, env: Env, cont: Cont): Value = exp match {
+    case P(e, NullValue) => base_eval(e, env, cont)
+    case P(e, es) => base_eval(e, env, F{ _ => eval_begin(es, env, cont) })
+  }
+
+  def eval_define(exp: Value, env: Env, cont: Cont): Value = exp match {
+    case P(_, P(r@S(name), body)) => {
+      val p = P(r,Undefined)
+      env.car = P(p, env.car)
+      eval_begin(body, env, F{v =>
+        p.cdr = v
+        cont.f(r)})
+    }
+  }
+
+  def evlist(exp: Value, env: Env, cont: Cont): Value = exp match {
+    case NullValue => cont.f(NullValue)
+    case P(first, rest) => base_eval(first, env, F{v => evlist(rest, env, F{vs => cont.f(P(v,vs))})})
+  }
+
+  def eval_application(exp: Value, env: Env, cont: Cont): Value = exp match {
+    case P(fun, args) => base_eval(fun, env, F{ vf => vf match {
+      case F(f) => evlist(args, env, F{ vas => cont.f(f(vas)) })
+      case Fsubr(f) => f(exp, env, cont)
+      case Fexpr(f) => cont.f(f(args))
+    }})
+  }
+
+  def eval_let(exp: Value, env: Env, cont: Cont): Value = exp match {
+    case P(_,P(P(params, P(args,NullValue)),P(e,NullValue))) => {
+      base_eval(e, extend(env,params,args), cont)
+    }
+  }
+
+  def extend(env: Env, params: Value, args: Value): Env = {
+    val frame = valueOf((list(params) zip  list(args)).map{t => P(t._1, t._2)})
+    P(frame, env)
+  }
+
+  def eval_fsubr(exp: Value, env: Env, cont: Cont): Value = exp match {
+    case P(_, P(params, body)) => cont.f(Fsubr({(exp, env, cont) =>
+      eval_begin(body, extend(env, params, P(exp, P(env, P(cont, NullValue)))), F{x => x})
+    }))
+  }
+
+  def eval_fexpr(exp: Value, env: Env, cont: Cont): Value = exp match {
+    case P(_, P(params, body)) => cont.f(Fexpr({args =>
+      eval_begin(body, extend(env, params, args), F{v => v})
+    }))
+  }
+
+  def findFrame(frame: Value, x: String): Option[P] = frame match {
+    case NullValue => None
+    case P(P(S(y),_), _) if (x==y) => Some(frame.asInstanceOf[P].car.asInstanceOf[P])
+    case P(_, rest) => findFrame(rest, x)
+  }
+
+  def find(env: Env, x: String): P = env match {
+    case P(first,rest) => findFrame(first, x) match {
+      case Some(p) => p
+      case None => rest match {
+        case next:Env => find(next, x)
+        case _ => sys.error(s"unbound variable $x")
+      }
+    }
+  }
+
+  def get(env: Env, x: String): Value = find(env, x).cdr
+  def set(env: Env, x: String, v: Value): Value = {
+    val p = find(env, x)
+    p.cdr = v
+    v
+  }
+
+  def make_init_env() = {
+    lazy val init_env: Env = P(valueOf(List(
+      P(S("eq?"), F({args => args match { case P(a, P(b, NullValue)) => B(a==b) }})),
+      P(S("+"), F({args => args match { case P(I(a,UoMNull), P(I(b,UoMNull), NullValue)) => I(a+b,UoMNull) }})),
+      P(S("-"), F({args => args match { case P(I(a,UoMNull), P(I(b,UoMNull), NullValue)) => I(a-b,UoMNull) }})),
+      P(S("*"), F({args => args match { case P(I(a,UoMNull), P(I(b,UoMNull), NullValue)) => I(a*b,UoMNull) }})),
+      P(S("<"), F({args => args match { case P(I(a,UoMNull), P(I(b,UoMNull), NullValue)) => B(a < b) }})),
+      P(S("eval"), F({args => args match {case P(e,NullValue) => base_eval(e,init_env,F({x => x})) }})),
+      //as far as I can tell everything is already as lists anyway
+      P(S("list"), F({args => args})),
+      //cons seems like it doesn't need to do any more than simply rearrange the arguments ahead of 
+      P(S("cons"), F(args => args match { case P(a, P(b, NullValue)) => P(a,b)})), 
+      P(S("car"), F(args => args match { case P(P(a, b),NullValue) => a})), 
+      P(S("cdr"), F(args => args match { case P(P(a, b),NullValue) => b})), 
+
+
+      P(S("if"), Fsubr({(exp: Value, env: Env, cont: Cont) => eval_if(exp, env, cont)})),
+      P(S("quote"), Fsubr({(exp: Value, env: Env, cont: Cont) => eval_quote(exp, env, cont)})),
+      P(S("set!"), Fsubr({(exp: Value, env: Env, cont: Cont) => eval_set_bang(exp, env, cont)})),
+      P(S("lambda"), Fsubr({(exp: Value, env: Env, cont: Cont) => eval_lambda(exp, env, cont)})),
+      P(S("begin"), Fsubr({(exp: Value, env: Env, cont: Cont) => eval_begin(exp, env, cont)})),
+      P(S("define"), Fsubr({(exp: Value, env: Env, cont: Cont) => eval_define(exp, env, cont)})),
+      P(S("fsubr"), Fsubr({(exp: Value, env: Env, cont: Cont) => eval_fsubr(exp, env, cont)})),
+      P(S("fexpr"), Fsubr({(exp: Value, env: Env, cont: Cont) => eval_fexpr(exp, env, cont)})),
+      P(S("let"), Fsubr({(exp: Value, env: Env, cont: Cont) => eval_let(exp, env, cont)}))
+      )), NullValue)
+     init_env
+  }
 }
 
 import scala.util.parsing.combinator._
@@ -64,7 +202,7 @@ object parser extends JavaTokenParsers with PackratParsers {
   def exp: Parser[Value] =
     "#f" ^^ { case _ => B(false) } |
     "#t" ^^ { case _ => B(true) } |
-    wholeNumber ^^ { case s => I(s.toInt) } |
+    wholeNumber ^^ { case s => I(s.toInt,UoMNull) } |
     """[^\s\(\)'"]+""".r ^^ { case s => S(s) } |
     "'" ~> exp ^^ { case s => P(S("quote"), P(s, NullValue)) } |
     "()" ^^ { case _ => NullValue } |
@@ -72,7 +210,7 @@ object parser extends JavaTokenParsers with PackratParsers {
 
   def exps: Parser[Value] =
       exp ~ exps ^^ { case v~vs => P(v, vs) } |
-      exp ^^ { case v => P(v, N) }
+      exp ^^ { case v => P(v, NullValue) }
 }
 
 import eval._
@@ -99,7 +237,7 @@ object pp {
     case B(b) => (false, if (b) "#t" else "#f")
     case I(n,u) => (false, 
       n.toString + "<" + addParen(pp(u)) + ">")
-    case I(x,u) => (false, 
+    case Fl(x,u) => (false, 
       x.toString + "<" + addParen(pp(u)) + ">")
     case S(s) => (false, s)
     case NullValue => (true, "")

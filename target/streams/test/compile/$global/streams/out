@@ -1,2 +1,4 @@
-[0m[[0m[33mwarn[0m] [0m[0mthere was one deprecation warning (since 2.11.0); re-run with -deprecation for details[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:240:20: unreachable code[0m
+[0m[[0m[33mwarn[0m] [0m[0m    case I(x,u) => (false, [0m
+[0m[[0m[33mwarn[0m] [0m[0m                   ^[0m
 [0m[[0m[33mwarn[0m] [0m[0mone warning found[0m

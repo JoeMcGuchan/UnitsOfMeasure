@@ -6,43 +6,25 @@
 [0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set()[0m
 [0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
 [0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(lisp.ast.UndefinedValue, lisp.ast.UoM, lisp.ast.Value, lisp.ast.NullValue, lisp.ast.UoMNull, lisp.ast.UoMFact, lisp.ast.P, lisp.ast.S, lisp.ast.UoMInv, lisp.ast, lisp.ast.UoMBase, lisp.ast.Fsubr, lisp.ast.I, lisp.ast.UoMProd, lisp.ast.Fexpr, lisp.ast.B, lisp.ast.Fl, lisp.ast.F)[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(lisp.parser, lisp.ast.Undefined, lisp.pp, lisp.ast.UoM, lisp.ast.Value, lisp.debug, lisp.ast.NullValue, lisp.ast.UoMNull, lisp.ast.UoMFact, lisp.eval, lisp.ast.P, lisp.ast.S, lisp.lisp_Tests, lisp.ast.UoMInv, lisp.ast, lisp.ast.UoMBase, lisp.debug.EnvDeco, lisp.ast.Fsubr, lisp.ast.I, lisp.ast.UoMProd, lisp.ast.Fexpr, lisp.ast.B, lisp.ast.Fl, lisp.repl, lisp.ast.F)[0m
 [0m[[0m[0mdebug[0m] [0m[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	product: Set()[0m
 [0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
 [0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated classes: Set(lisp.ast.UndefinedValue, lisp.ast.UoM, lisp.ast.Value, lisp.ast.NullValue, lisp.ast.UoMNull, lisp.ast.UoMFact, lisp.ast.P, lisp.ast.S, lisp.ast.UoMInv, lisp.ast, lisp.ast.UoMBase, lisp.ast.Fsubr, lisp.ast.I, lisp.ast.UoMProd, lisp.ast.Fexpr, lisp.ast.B, lisp.ast.Fl, lisp.ast.F)[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated classes: Set(lisp.parser, lisp.ast.Undefined, lisp.pp, lisp.ast.UoM, lisp.ast.Value, lisp.debug, lisp.ast.NullValue, lisp.ast.UoMNull, lisp.ast.UoMFact, lisp.eval, lisp.ast.P, lisp.ast.S, lisp.lisp_Tests, lisp.ast.UoMInv, lisp.ast, lisp.ast.UoMBase, lisp.debug.EnvDeco, lisp.ast.Fsubr, lisp.ast.I, lisp.ast.UoMProd, lisp.ast.Fexpr, lisp.ast.B, lisp.ast.Fl, lisp.repl, lisp.ast.F)[0m
 [0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated sources:Set(/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala)[0m
 [0m[[0m[0minfo[0m] [0m[0mCompiling 1 Scala source to /home/joe/Documents/Code/Metaprogramming/assignment4/target/scala-2.12/test-classes ...[0m
 [0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.2.4:compile for Scala 2.12.7[0m
 [0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.2.4:compile for Scala 2.12.7[0m
-[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 7fa105f9 for Scala compiler version 2.12.7[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 75cbe7b5 for Scala compiler version 2.12.7[0m
 [0m[[0m[0mdebug[0m] [0m[0m[zinc] The Scala compiler is invoked with:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	-bootclasspath[0m
 [0m[[0m[0mdebug[0m] [0m[0m	/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes:/home/joe/.sbt/boot/scala-2.12.7/lib/scala-library.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
 [0m[[0m[0mdebug[0m] [0m[0m	/home/joe/Documents/Code/Metaprogramming/assignment4/target/scala-2.12/test-classes:/home/joe/Documents/Code/Metaprogramming/assignment4/target/scala-2.12/classes:/home/joe/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/bundles/scala-parser-combinators_2.12-1.1.1.jar:/home/joe/.ivy2/cache/org.scalatest/scalatest_2.12/bundles/scalatest_2.12-3.0.5.jar:/home/joe/.ivy2/cache/org.scalactic/scalactic_2.12/bundles/scalactic_2.12-3.0.5.jar:/home/joe/.sbt/boot/scala-2.12.7/lib/scala-reflect.jar:/home/joe/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/bundles/scala-xml_2.12-1.0.6.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0mScala compilation took 2.127919665 s[0m
+[0m[[0m[0mdebug[0m] [0m[0mScala compilation took 3.502750595 s[0m
 [0m[[0m[0minfo[0m] [0m[0mDone compiling.[0m
-[0m[[0m[0mdebug[0m] [0m[0mInvalidating (transitively) by inheritance from lisp.debug.EnvDeco...[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: Set(lisp.debug.EnvDeco)[0m
-[0m[[0m[0mdebug[0m] [0m[0mInvalidated by transitive inheritance dependency: Set(lisp.debug.EnvDeco)[0m
-[0m[[0m[0mdebug[0m] [0m[0mChange NamesChange(lisp.debug.EnvDeco,ModifiedNames(changes = UsedName(toString,[Default]), UsedName(finalize,[Default]), UsedName(notifyAll,[Default]), UsedName(asInstanceOf,[Default]), UsedName(!=,[Default]), UsedName(format,[Default]), UsedName(lisp;debug;EnvDeco;init;,[Default]), UsedName(hashCode$extension,[Default]), UsedName(isInstanceOf,[Default]), UsedName(wait,[Default]), UsedName(ne,[Default]), UsedName(notify,[Default]), UsedName(##,[Default]), UsedName($isInstanceOf,[Default]), UsedName(eq,[Default]), UsedName(==,[Default]), UsedName(formatFrame,[Default]), UsedName(EnvDeco,[Default, Implicit]), UsedName(formatFrame$extension,[Default]), UsedName(equals,[Default]), UsedName(env,[Default]), UsedName(equals$extension,[Default]), UsedName($asInstanceOf,[Default]), UsedName(clone,[Default]), UsedName(hashCode,[Default]), UsedName(format$extension,[Default]), UsedName(getClass,[Default]), UsedName(synchronized,[Default]))) invalidates 1 classes due to The lisp.debug.EnvDeco has the following implicit definitions changed:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	UsedName(EnvDeco,[Default, Implicit]).[0m
-[0m[[0m[0mdebug[0m] [0m[0m	> by transitive inheritance: Set(lisp.debug.EnvDeco)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	> [0m
-[0m[[0m[0mdebug[0m] [0m[0m	> [0m
-[0m[[0m[0mdebug[0m] [0m[0m        [0m
-[0m[[0m[0mdebug[0m] [0m[0mInvalidating (transitively) by inheritance from lisp.debug...[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: Set(lisp.debug)[0m
-[0m[[0m[0mdebug[0m] [0m[0mInvalidated by transitive inheritance dependency: Set(lisp.debug)[0m
-[0m[[0m[0mdebug[0m] [0m[0mChange NamesChange(lisp.debug,ModifiedNames(changes = UsedName(toString,[Default]), UsedName(finalize,[Default]), UsedName(depth,[Default]), UsedName(padding,[Default]), UsedName(notifyAll,[Default]), UsedName(pad$default$2,[Default]), UsedName(indentedDebug,[Default]), UsedName(asInstanceOf,[Default]), UsedName(!=,[Default]), UsedName(isInstanceOf,[Default]), UsedName(wait,[Default]), UsedName(ne,[Default]), UsedName(notify,[Default]), UsedName(debug,[Default]), UsedName(##,[Default]), UsedName($isInstanceOf,[Default]), UsedName(eq,[Default]), UsedName(==,[Default]), UsedName(EnvDeco,[Default, Implicit]), UsedName(trace,[Default]), UsedName(equals,[Default]), UsedName(pad,[Default]), UsedName(apply,[Default]), UsedName($asInstanceOf,[Default]), UsedName(indentTab,[Default]), UsedName(clone,[Default]), UsedName(hashCode,[Default]), UsedName(enable,[Default]), UsedName(getClass,[Default]), UsedName(synchronized,[Default]))) invalidates 1 classes due to The lisp.debug has the following implicit definitions changed:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	UsedName(EnvDeco,[Default, Implicit]).[0m
-[0m[[0m[0mdebug[0m] [0m[0m	> by transitive inheritance: Set(lisp.debug)[0m
-[0m[[0m[0mdebug[0m] [0m[0m	> [0m
-[0m[[0m[0mdebug[0m] [0m[0m	> [0m
-[0m[[0m[0mdebug[0m] [0m[0m        [0m
 [0m[[0m[0mdebug[0m] [0m[0mNew invalidations:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Set()[0m
 [0m[[0m[0mdebug[0m] [0m[0mInitial set of included nodes: Set()[0m
