@@ -1,4 +1,6 @@
-[0m[[0m[33mwarn[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:240:20: unreachable code[0m
-[0m[[0m[33mwarn[0m] [0m[0m    case I(x,u) => (false, [0m
-[0m[[0m[33mwarn[0m] [0m[0m                   ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:293:30: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Double(4.5)[0m
+[0m[[0m[31merror[0m] [0m[0m required: Float[0m
+[0m[[0m[31merror[0m] [0m[0m    assertResult(I(5,UoMFact(4.5)))(ev("5<4.5>"))[0m
+[0m[[0m[31merror[0m] [0m[0m                             ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

@@ -22,7 +22,7 @@ object ast {
 
   //Unit of Measure is a value that can parametise things
   trait UoM extends Value
-  case object UoMNull extends UoM // For Unitless Values
+  case object UoMOne extends UoM // For Unitless Values
   case class UoMBase(name : String) extends UoM //Base Value
   // As opposed to F#, I think it will be more elegant to 
   // incorporate multiplication factors into the UoM
@@ -30,7 +30,10 @@ object ast {
   // Unlike integers, products for UoMs can't be described
   // As functions, they are fundamental
   case class UoMProd(l:UoM, r:UoM) extends UoM
-  case class UoMInv(u:UoM) extends UoM //u^(-1)
+  // Yes, UoMPow adds a lot of redundancy to how I can
+  // express UoMs, but I think it is significantly
+  // more intuitive
+  case class UoMPow(u:UoM, n:Int) extends UoM //u^n
 
   case class I(n: Int, u:UoM) extends Value
   case class Fl(f: Float, u:UoM) extends Value
@@ -170,10 +173,10 @@ object eval {
   def make_init_env() = {
     lazy val init_env: Env = P(valueOf(List(
       P(S("eq?"), F({args => args match { case P(a, P(b, NullValue)) => B(a==b) }})),
-      P(S("+"), F({args => args match { case P(I(a,UoMNull), P(I(b,UoMNull), NullValue)) => I(a+b,UoMNull) }})),
-      P(S("-"), F({args => args match { case P(I(a,UoMNull), P(I(b,UoMNull), NullValue)) => I(a-b,UoMNull) }})),
-      P(S("*"), F({args => args match { case P(I(a,UoMNull), P(I(b,UoMNull), NullValue)) => I(a*b,UoMNull) }})),
-      P(S("<"), F({args => args match { case P(I(a,UoMNull), P(I(b,UoMNull), NullValue)) => B(a < b) }})),
+      P(S("+"), F({args => args match { case P(I(a,UoMOne), P(I(b,UoMOne), NullValue)) => I(a+b,UoMOne) }})),
+      P(S("-"), F({args => args match { case P(I(a,UoMOne), P(I(b,UoMOne), NullValue)) => I(a-b,UoMOne) }})),
+      P(S("*"), F({args => args match { case P(I(a,UoMOne), P(I(b,UoMOne), NullValue)) => I(a*b,UoMOne) }})),
+      P(S("<"), F({args => args match { case P(I(a,UoMOne), P(I(b,UoMOne), NullValue)) => B(a < b) }})),
       P(S("eval"), F({args => args match {case P(e,NullValue) => base_eval(e,init_env,F({x => x})) }})),
       //as far as I can tell everything is already as lists anyway
       P(S("list"), F({args => args})),
@@ -202,8 +205,9 @@ object parser extends JavaTokenParsers with PackratParsers {
   def exp: Parser[Value] =
     "#f" ^^ { case _ => B(false) } |
     "#t" ^^ { case _ => B(true) } |
-    wholeNumber ^^ { case s => I(s.toInt,UoMNull) } |
-    """[^\s\(\)'"]+""".r ^^ { case s => S(s) } |
+    wholeNumber ~ ("<" ~> uom <~ ">") ^^ { case s~u => I(s.toInt,u) } |
+    decimalNumber ~ ("<" ~> uom <~ ">") ^^ { case s~u => Fl(s.toFloat,u) } |
+    """[a-zA-Z_]+""".r ^^ { case s => S(s) } |
     "'" ~> exp ^^ { case s => P(S("quote"), P(s, NullValue)) } |
     "()" ^^ { case _ => NullValue } |
     "(" ~> exps <~ ")" ^^ { case vs => vs }
@@ -211,6 +215,17 @@ object parser extends JavaTokenParsers with PackratParsers {
   def exps: Parser[Value] =
       exp ~ exps ^^ { case v~vs => P(v, vs) } |
       exp ^^ { case v => P(v, NullValue) }
+
+  def uom: Parser[UoM] =
+      "1" ^^ { case _ => UoMOne } |
+      decimalNumber ^^ { case x => UoMFact(x.toFloat) } |
+      (uom <~ """^""") ~ wholeNumber ^^ { case u~n => UoMPow(u,n.toInt) } |
+      """[a-zA-Z_]+""".r ^^ { case s => UoMBase(s) } //|
+      //"(" ~> uoms <~ ")" ^^ { case us => us }
+
+  def uoms: Parser[UoM] =
+      uom ~ uoms ^^ { case u~us => UoMProd(u, us) } |
+      uom ^^ { case u => UoMProd(u, UoMOne) }
 }
 
 import eval._
@@ -247,13 +262,13 @@ object pp {
       val (need_paren2, s2) = pp(d)
       if (need_paren2) (true, s1+" "+s2)
       else (true, s1+" . "+s2)
-    case UoMNull => (true, "")
+    case UoMOne => (true, "")
     case UoMBase(name) => (false, name)
     case UoMFact(x) => (false, x.toString)
     case UoMProd(l, r) => (false, 
-      addParen(pp(l)) + " * " + addParen(pp(r)))
-    case UoMInv(u:UoM) => (false,
-      addParen(pp(u)) + "^-1")
+      addParen(pp(l)) + " " + addParen(pp(r)))
+    case UoMPow(u:UoM, n:Int) => (false,
+      addParen(pp(u)) + "^" + n)
     case _ => (false, v.toString)
   }
   def show(v: Value) = addParen(pp(v))
@@ -266,6 +281,29 @@ import repl._
 import pp._
 import utils._
 class lisp_Tests extends TestSuite {  before { clean() }
+  test("true") {
+    assertResult(B(true))(ev("#t"))
+  }
+
+  test("UoM test one") {
+    assertResult(I(5,UoMOne))(ev("5<1>"))
+  }
+
+  test("UoM test two") {
+    assertResult(I(5,UoMFact(4.5f)))(ev("5<4.5>"))
+  }
+
+  test("UoM test three") {
+    assertResult(I(5,UoMBase("m")))(ev("5<m>"))
+  }
+
+  test("UoM test four") {
+    assertResult(Fl(2.3f,UoMPow(UoMBase("m"),2)))(ev("2.3<m^2>"))
+  }
+
+  test("UoM test five") {
+    assertResult(I(-1,UoMProd(UoMBase("m"),UoMPow(UoMBase("s"),2))))(ev("-1<m s^-2>"))
+  }
 }
 
 import lisp._
