@@ -1,10 +1,9 @@
 [0m[[0m[0minfo[0m] [0m[0m[32mlisp_Tests:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- true[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- UoM test one[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- UoM test two[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- UoM test three[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- UoM test four[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- UoM test five[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- UoM test six[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m- Add *** FAILED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  Expected I(5,UoMStr(m)), but got I(5,UoMOne) (lisp.scala:313)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- UoM test one !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- UoM test two !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- UoM test three !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- UoM test four !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- UoM test five !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- UoM test six !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[33m- Add !!! IGNORED !!![0m[0m

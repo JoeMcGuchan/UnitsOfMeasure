@@ -1,13 +1,5 @@
-[0m[[0m[31merror[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:223:52: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : String[0m
-[0m[[0m[31merror[0m] [0m[0m required: ?{def apply: ?}[0m
-[0m[[0m[31merror[0m] [0m[0mNote that implicit conversions are not applicable because they are ambiguous:[0m
-[0m[[0m[31merror[0m] [0m[0m both method augmentString in object Predef of type (x: String)scala.collection.immutable.StringOps[0m
-[0m[[0m[31merror[0m] [0m[0m and method literal in trait RegexParsers of type (s: String)lisp.parser.Parser[String][0m
-[0m[[0m[31merror[0m] [0m[0m are possible conversion functions from String to ?{def apply: ?}[0m
-[0m[[0m[31merror[0m] [0m[0m      ("(" ~> uom ~ ")") <~ uomop ^^ { case u~f => f(u) }[0m
-[0m[[0m[31merror[0m] [0m[0m                                                   ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:223:53: String does not take parameters[0m
-[0m[[0m[31merror[0m] [0m[0m      ("(" ~> uom ~ ")") <~ uomop ^^ { case u~f => f(u) }[0m
-[0m[[0m[31merror[0m] [0m[0m                                                    ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:217:33: match may not be exhaustive.[0m
+[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: (UoMProd(??, _), _), (UoMProd(UoMNum(_), _), _), (UoMProd(UoMPow(UoMBase(_), _), _), _), (UoMProd(UoMPow(_, _), (_ : lisp.ast.UoM)), _), (UoMProd(UoMPow(_, _), _), _), (UoMProd(_, (_ : lisp.ast.UoM)), _), (UoMProd(_, _), _), (_, _)[0m
+[0m[[0m[33mwarn[0m] [0m[0m  def merge(u:UoM,v:UoM): UoM = (u,v) match {[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                ^[0m
+[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
