@@ -1,6 +1,13 @@
-[0m[[0m[31merror[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:293:30: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : Double(4.5)[0m
-[0m[[0m[31merror[0m] [0m[0m required: Float[0m
-[0m[[0m[31merror[0m] [0m[0m    assertResult(I(5,UoMFact(4.5)))(ev("5<4.5>"))[0m
-[0m[[0m[31merror[0m] [0m[0m                             ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:223:52: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : String[0m
+[0m[[0m[31merror[0m] [0m[0m required: ?{def apply: ?}[0m
+[0m[[0m[31merror[0m] [0m[0mNote that implicit conversions are not applicable because they are ambiguous:[0m
+[0m[[0m[31merror[0m] [0m[0m both method augmentString in object Predef of type (x: String)scala.collection.immutable.StringOps[0m
+[0m[[0m[31merror[0m] [0m[0m and method literal in trait RegexParsers of type (s: String)lisp.parser.Parser[String][0m
+[0m[[0m[31merror[0m] [0m[0m are possible conversion functions from String to ?{def apply: ?}[0m
+[0m[[0m[31merror[0m] [0m[0m      ("(" ~> uom ~ ")") <~ uomop ^^ { case u~f => f(u) }[0m
+[0m[[0m[31merror[0m] [0m[0m                                                   ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:223:53: String does not take parameters[0m
+[0m[[0m[31merror[0m] [0m[0m      ("(" ~> uom ~ ")") <~ uomop ^^ { case u~f => f(u) }[0m
+[0m[[0m[31merror[0m] [0m[0m                                                    ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

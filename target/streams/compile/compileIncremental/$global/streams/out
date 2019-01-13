@@ -6,24 +6,24 @@
 [0m[[0m[0mdebug[0m] [0m[0mInvalidated products: Set()[0m
 [0m[[0m[0mdebug[0m] [0m[0mExternal API changes: API Changes: Set()[0m
 [0m[[0m[0mdebug[0m] [0m[0mModified binary dependencies: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(lisp.parser, lisp.ast.Undefined, lisp.ast.UoMOne, lisp.pp, lisp.ast.UoMPow, lisp.ast.UoM, lisp.ast.Value, lisp.debug, lisp.ast.NullValue, lisp.ast.UoMFact, lisp.eval, lisp.ast.P, lisp.ast.S, lisp.lisp_Tests, lisp.ast, lisp.ast.UoMBase, lisp.debug.EnvDeco, lisp.ast.Fsubr, lisp.ast.I, lisp.ast.UoMProd, lisp.ast.Fexpr, lisp.ast.B, lisp.ast.Fl, lisp.repl, lisp.ast.F)[0m
+[0m[[0m[0mdebug[0m] [0m[0mInitial directly invalidated classes: Set(lisp.parser, lisp.ast.Undefined, lisp.ast.UoMOne, lisp.pp, lisp.ast.UoMPow, lisp.ast.UoM, lisp.ast.Value, lisp.debug, lisp.ast.NullValue, lisp.ast.UoMFact, lisp.eval, lisp.ast.P, lisp.ast.S, lisp.lisp_Tests, lisp.ast, lisp.debug.EnvDeco, lisp.ast.Fsubr, lisp.ast.I, lisp.ast.UoMProd, lisp.ast.UoMStr, lisp.ast.Fexpr, lisp.ast.B, lisp.ast.Fl, lisp.repl, lisp.ast.F)[0m
 [0m[[0m[0mdebug[0m] [0m[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mSources indirectly invalidated by:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	product: Set()[0m
 [0m[[0m[0mdebug[0m] [0m[0m	binary dep: Set()[0m
 [0m[[0m[0mdebug[0m] [0m[0m	external source: Set()[0m
-[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated classes: Set(lisp.parser, lisp.ast.Undefined, lisp.ast.UoMOne, lisp.pp, lisp.ast.UoMPow, lisp.ast.UoM, lisp.ast.Value, lisp.debug, lisp.ast.NullValue, lisp.ast.UoMFact, lisp.eval, lisp.ast.P, lisp.ast.S, lisp.lisp_Tests, lisp.ast, lisp.ast.UoMBase, lisp.debug.EnvDeco, lisp.ast.Fsubr, lisp.ast.I, lisp.ast.UoMProd, lisp.ast.Fexpr, lisp.ast.B, lisp.ast.Fl, lisp.repl, lisp.ast.F)[0m
+[0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated classes: Set(lisp.parser, lisp.ast.Undefined, lisp.ast.UoMOne, lisp.pp, lisp.ast.UoMPow, lisp.ast.UoM, lisp.ast.Value, lisp.debug, lisp.ast.NullValue, lisp.ast.UoMFact, lisp.eval, lisp.ast.P, lisp.ast.S, lisp.lisp_Tests, lisp.ast, lisp.debug.EnvDeco, lisp.ast.Fsubr, lisp.ast.I, lisp.ast.UoMProd, lisp.ast.UoMStr, lisp.ast.Fexpr, lisp.ast.B, lisp.ast.Fl, lisp.repl, lisp.ast.F)[0m
 [0m[[0m[0mdebug[0m] [0m[0mAll initially invalidated sources:Set(/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala)[0m
 [0m[[0m[0minfo[0m] [0m[0mCompiling 1 Scala source to /home/joe/Documents/Code/Metaprogramming/assignment4/target/scala-2.12/classes ...[0m
 [0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.2.4:compile for Scala 2.12.7[0m
 [0m[[0m[0mdebug[0m] [0m[0mGetting org.scala-sbt:compiler-bridge_2.12:1.2.4:compile for Scala 2.12.7[0m
-[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 20caedcd for Scala compiler version 2.12.7[0m
+[0m[[0m[0mdebug[0m] [0m[0m[zinc] Running cached compiler 48049f86 for Scala compiler version 2.12.7[0m
 [0m[[0m[0mdebug[0m] [0m[0m[zinc] The Scala compiler is invoked with:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	-bootclasspath[0m
 [0m[[0m[0mdebug[0m] [0m[0m	/usr/lib/jvm/java-8-oracle/jre/lib/resources.jar:/usr/lib/jvm/java-8-oracle/jre/lib/rt.jar:/usr/lib/jvm/java-8-oracle/jre/lib/sunrsasign.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jsse.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jce.jar:/usr/lib/jvm/java-8-oracle/jre/lib/charsets.jar:/usr/lib/jvm/java-8-oracle/jre/lib/jfr.jar:/usr/lib/jvm/java-8-oracle/jre/classes:/home/joe/.sbt/boot/scala-2.12.7/lib/scala-library.jar[0m
 [0m[[0m[0mdebug[0m] [0m[0m	-classpath[0m
 [0m[[0m[0mdebug[0m] [0m[0m	/home/joe/Documents/Code/Metaprogramming/assignment4/target/scala-2.12/classes:/home/joe/.ivy2/cache/org.scala-lang.modules/scala-parser-combinators_2.12/bundles/scala-parser-combinators_2.12-1.1.1.jar:/home/joe/.ivy2/cache/org.scalatest/scalatest_2.12/bundles/scalatest_2.12-3.0.5.jar:/home/joe/.ivy2/cache/org.scalactic/scalactic_2.12/bundles/scalactic_2.12-3.0.5.jar:/home/joe/.sbt/boot/scala-2.12.7/lib/scala-reflect.jar:/home/joe/.ivy2/cache/org.scala-lang.modules/scala-xml_2.12/bundles/scala-xml_2.12-1.0.6.jar[0m
-[0m[[0m[0mdebug[0m] [0m[0mScala compilation took 10.28437924 s[0m
+[0m[[0m[0mdebug[0m] [0m[0mScala compilation took 8.737808549 s[0m
 [0m[[0m[0minfo[0m] [0m[0mDone compiling.[0m
 [0m[[0m[0mdebug[0m] [0m[0mNew invalidations:[0m
 [0m[[0m[0mdebug[0m] [0m[0m	Set()[0m

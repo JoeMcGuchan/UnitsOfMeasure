@@ -2,9 +2,9 @@
 [0m[[0m[0minfo[0m] [0m[0m[32m- true[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- UoM test one[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- UoM test two[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31mlisp.lisp_Tests *** ABORTED ***[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  java.lang.StackOverflowError:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at java.util.regex.Pattern.atom(Pattern.java:2198)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at java.util.regex.Pattern.sequence(Pattern.java:2079)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at java.util.regex.Pattern.expr(Pattern.java:1996)[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[31m  at java.util.regex.Pattern.group0(Pattern.java:2905)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- UoM test three[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- UoM test four[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- UoM test five[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- UoM test six[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- Add *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  Expected I(5,UoMStr(m)), but got I(5,UoMOne) (lisp.scala:313)[0m[0m
