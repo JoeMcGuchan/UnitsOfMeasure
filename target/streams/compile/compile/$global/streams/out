@@ -1,5 +1,9 @@
-[0m[[0m[33mwarn[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:217:33: match may not be exhaustive.[0m
-[0m[[0m[33mwarn[0m] [0m[0mIt would fail on the following inputs: (UoMProd(??, _), _), (UoMProd(UoMNum(_), _), _), (UoMProd(UoMPow(UoMBase(_), _), _), _), (UoMProd(UoMPow(_, _), (_ : lisp.ast.UoM)), _), (UoMProd(UoMPow(_, _), _), _), (UoMProd(_, (_ : lisp.ast.UoM)), _), (UoMProd(_, _), _), (_, _)[0m
-[0m[[0m[33mwarn[0m] [0m[0m  def merge(u:UoM,v:UoM): UoM = (u,v) match {[0m
-[0m[[0m[33mwarn[0m] [0m[0m                                ^[0m
-[0m[[0m[33mwarn[0m] [0m[0mone warning found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:547:19: not enough arguments for method apply: (n: Int, u: lisp.ast.Value)lisp.ast.I in object I.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter u.[0m
+[0m[[0m[31merror[0m] [0m[0m    assertResult(I(2))(ev("test"))[0m
+[0m[[0m[31merror[0m] [0m[0m                  ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/joe/Documents/Code/Metaprogramming/assignment4/lisp.scala:550:19: not enough arguments for method apply: (n: Int, u: lisp.ast.Value)lisp.ast.I in object I.[0m
+[0m[[0m[31merror[0m] [0m[0mUnspecified value parameter u.[0m
+[0m[[0m[31merror[0m] [0m[0m    assertResult(I(4))(ev("test"))[0m
+[0m[[0m[31merror[0m] [0m[0m                  ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

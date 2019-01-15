@@ -1,9 +1,30 @@
 [0m[[0m[0minfo[0m] [0m[0m[32mlisp_Tests:[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32m- true[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[33m- UoM test one !!! IGNORED !!![0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[33m- UoM test two !!! IGNORED !!![0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[33m- UoM test three !!! IGNORED !!![0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[33m- UoM test four !!! IGNORED !!![0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[33m- UoM test five !!! IGNORED !!![0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[33m- UoM test six !!! IGNORED !!![0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[33m- Add !!! IGNORED !!![0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- unit[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- conversion of ints[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- m^2[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- simplify[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- number[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- add 1 to 1[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- multiply by -1[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- ms^-2[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- power distribution[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Add[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- Add conversion[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- define conversion[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- gravity[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- fsubr history (carried over from assignment one)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- imperial[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m- imperial reverse *** FAILED ***[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  scala.MatchError: I(0,UoMOne) (of class lisp.ast$I)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at lisp.eval$.$anonfun$eval_application$1(lisp.scala:87)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at lisp.debug$.$anonfun$trace$1(lisp.scala:590)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at lisp.eval$.$anonfun$base_eval$2(lisp.scala:73)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at lisp.debug$.$anonfun$trace$1(lisp.scala:590)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at lisp.eval$.$anonfun$base_eval$1(lisp.scala:76)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at lisp.debug$.trace(lisp.scala:592)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at lisp.debug$.apply(lisp.scala:581)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at lisp.eval$.base_eval(lisp.scala:71)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at lisp.eval$.$anonfun$base_eval$1(lisp.scala:73)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  at lisp.debug$.trace(lisp.scala:592)[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[31m  ...[0m[0m
